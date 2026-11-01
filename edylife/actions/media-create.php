@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1); require_once __DIR__.'/../includes/bootstrap.php';
+$dest=app_url('pages/movies.php');
+if($_SERVER['REQUEST_METHOD']!=='POST'){header('Location: '.$dest);exit;} verify_csrf();
+$title=trim((string)($_POST['title']??''));$type=(string)($_POST['media_type']??'Movie');$year=trim((string)($_POST['release_year']??''));$genre=trim((string)($_POST['genre']??''));$status=(string)($_POST['watch_status']??'Plan to Watch');$rating=trim((string)($_POST['rating']??''));$notes=trim((string)($_POST['notes']??''));
+$types=['Movie','Drama','Anime','Series','Documentary','Other'];$statuses=['Watching','Completed','Plan to Watch'];
+if($title===''||mb_strlen($title)>180||!in_array($type,$types,true)||!in_array($status,$statuses,true)||($year!==''&&(!ctype_digit($year)||(int)$year<1888||(int)$year>2100))||mb_strlen($genre)>100||mb_strlen($notes)>1000||($rating!==''&&(!is_numeric($rating)||(float)$rating<0||(float)$rating>10))){header('Location: '.$dest.'?status=invalid');exit;}
+$poster=null;$file=$_FILES['poster']??null;
+if(is_array($file)&&($file['error']??UPLOAD_ERR_NO_FILE)!==UPLOAD_ERR_NO_FILE){$map=['image/jpeg'=>'jpg','image/png'=>'png','image/webp'=>'webp'];$tmp=$file['tmp_name']??'';$mime=is_uploaded_file($tmp)?(new finfo(FILEINFO_MIME_TYPE))->file($tmp):'';if(($file['error']??1)!==UPLOAD_ERR_OK||(int)($file['size']??0)<1||(int)$file['size']>5*1024*1024||!isset($map[$mime])||@getimagesize($tmp)===false){header('Location: '.$dest.'?status=poster-failed');exit;}$dir=dirname(__DIR__).'/uploads/posters';if(!is_dir($dir)&&!mkdir($dir,0750,true)&&!is_dir($dir)){header('Location: '.$dest.'?status=poster-failed');exit;}$poster=bin2hex(random_bytes(20)).'.'.$map[$mime];if(!move_uploaded_file($tmp,$dir.'/'.$poster)){$poster=null;header('Location: '.$dest.'?status=poster-failed');exit;}}
+try{$q=$pdo->prepare('INSERT INTO media_watchlist(title,media_type,release_year,genre,watch_status,rating,poster_file,notes,completed_at) VALUES(?,?,?,?,?,?,?,?,?)');$q->execute([$title,$type,$year!==''?(int)$year:null,$genre?:null,$status,$rating!==''?(float)$rating:null,$poster,$notes?:null,$status==='Completed'?date('Y-m-d H:i:s'):null]);}catch(Throwable $e){if($poster)@unlink(dirname(__DIR__).'/uploads/posters/'.$poster);throw $e;}
+header('Location: '.$dest.'?status=media-added');exit;

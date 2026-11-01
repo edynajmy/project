@@ -1,0 +1,2 @@
+<?php
+declare(strict_types=1);require_once __DIR__.'/../includes/bootstrap.php';if($_SERVER['REQUEST_METHOD']!=='POST'){header('Location: '.app_url('pages/work-planner.php'));exit;}verify_csrf();$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);if($id){$q=$pdo->prepare('DELETE FROM work_items WHERE id=?');$q->execute([$id]);}header('Location: '.app_url('pages/work-planner.php?status=work-removed'));exit;

@@ -1,0 +1,2 @@
+<?php
+declare(strict_types=1);require_once __DIR__.'/../includes/bootstrap.php';if($_SERVER['REQUEST_METHOD']!=='POST'){header('Location: '.app_url('pages/work-planner.php'));exit;}verify_csrf();$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);$status=(string)($_POST['status']??'');if($id&&in_array($status,['To do','In progress','Done'],true)){$q=$pdo->prepare('UPDATE work_items SET status=? WHERE id=?');$q->execute([$status,$id]);}header('Location: '.app_url('pages/work-planner.php?status=work-status'));exit;

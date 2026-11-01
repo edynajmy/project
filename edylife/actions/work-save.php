@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);require_once __DIR__.'/../includes/bootstrap.php';
+if($_SERVER['REQUEST_METHOD']!=='POST'){header('Location: '.app_url('pages/work-planner.php'));exit;}verify_csrf();
+$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT)?:null;$title=trim((string)($_POST['title']??''));$desc=trim((string)($_POST['description']??''));$cat=trim((string)($_POST['category']??'General'));$priority=(string)($_POST['priority']??'Medium');$status=(string)($_POST['status']??'To do');$start=trim((string)($_POST['start_date']??''));$due=trim((string)($_POST['due_date']??''));
+$dateOk=fn($d)=>$d===''||preg_match('/^\d{4}-\d{2}-\d{2}$/',$d);
+if($title===''||mb_strlen($title)>160||mb_strlen($desc)>5000||$cat===''||mb_strlen($cat)>60||!in_array($priority,['Low','Medium','High'],true)||!in_array($status,['To do','In progress','Done'],true)||!$dateOk($start)||!$dateOk($due)){header('Location: '.app_url('pages/work-planner.php?status=invalid'));exit;}
+if($id){$q=$pdo->prepare('UPDATE work_items SET title=?,description=?,category=?,priority=?,status=?,start_date=?,due_date=? WHERE id=?');$q->execute([$title,$desc?:null,$cat,$priority,$status,$start?:null,$due?:null,$id]);$msg='work-edited';}else{$q=$pdo->prepare('INSERT INTO work_items(title,description,category,priority,status,start_date,due_date) VALUES(?,?,?,?,?,?,?)');$q->execute([$title,$desc?:null,$cat,$priority,$status,$start?:null,$due?:null]);$msg='work-added';}header('Location: '.app_url('pages/work-planner.php?status='.$msg));exit;

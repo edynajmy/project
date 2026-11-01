@@ -1,0 +1,3 @@
+<?php
+declare(strict_types=1); require_once __DIR__.'/../includes/bootstrap.php';
+$dest=app_url('pages/movies.php');if($_SERVER['REQUEST_METHOD']!=='POST'){header('Location: '.$dest);exit;}verify_csrf();$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);if(!$id){header('Location: '.$dest.'?status=invalid');exit;}$q=$pdo->prepare('SELECT poster_file FROM media_watchlist WHERE id=?');$q->execute([$id]);$row=$q->fetch();if($row){$q=$pdo->prepare('DELETE FROM media_watchlist WHERE id=?');$q->execute([$id]);if($row['poster_file'])@unlink(dirname(__DIR__).'/uploads/posters/'.$row['poster_file']);}header('Location: '.$dest.'?status=media-removed');exit;
