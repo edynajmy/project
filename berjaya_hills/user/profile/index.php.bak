@@ -1,0 +1,248 @@
+<?php
+require_once __DIR__.'/../../includes/bootstrap.php';
+$u = require_login();
+$pageTitle = 'My Profile';
+$pdo = db();
+
+/* Load notification preferences from the existing schema. */
+$prefStmt = $pdo->prepare('SELECT booking_updates, event_reminders, announcements, email_enabled FROM user_notification_preferences WHERE user_id=?');
+$prefStmt->execute([$u['id']]);
+$prefs = $prefStmt->fetch() ?: [
+    'booking_updates' => 1,
+    'event_reminders' => 1,
+    'announcements' => 1,
+    'email_enabled' => 1,
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    verify_csrf($_POST['csrf'] ?? '');
+    $action = $_POST['action'] ?? 'profile';
+
+    if ($action === 'profile') {
+        $s = $pdo->prepare('UPDATE users SET full_name=?, phone=?, company_name=?, job_title=? WHERE id=?');
+        $s->execute([
+            trim($_POST['full_name'] ?? ''),
+            trim($_POST['phone'] ?? ''),
+            trim($_POST['company_name'] ?? ''),
+            trim($_POST['job_title'] ?? ''),
+            $u['id']
+        ]);
+        audit('profile_updated','user',$u['id']);
+        flash('success','Profile updated.');
+    } elseif ($action === 'notifications') {
+        $bookingUpdates = isset($_POST['booking_updates']) ? 1 : 0;
+        $eventReminders = isset($_POST['event_reminders']) ? 1 : 0;
+        $announcements = isset($_POST['announcements']) ? 1 : 0;
+        $emailEnabled = isset($_POST['email_enabled']) ? 1 : 0;
+
+        $s = $pdo->prepare(
+            'INSERT INTO user_notification_preferences (user_id, booking_updates, event_reminders, announcements, email_enabled)
+             VALUES (?, ?, ?, ?, ?)
+             ON DUPLICATE KEY UPDATE booking_updates=VALUES(booking_updates), event_reminders=VALUES(event_reminders), announcements=VALUES(announcements), email_enabled=VALUES(email_enabled)'
+        );
+        $s->execute([$u['id'], $bookingUpdates, $eventReminders, $announcements, $emailEnabled]);
+        audit('notification_preferences_updated','user',$u['id']);
+        flash('success','Notification preferences updated.');
+    }
+
+    redirect('user/profile/index.php');
+}
+
+$st = $pdo->prepare('SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0');
+$st->execute([$u['id']]);
+$userUnreadNotifications = (int)$st->fetchColumn();
+
+$accountStatus = ucfirst($u['account_status'] ?? 'approved');
+$memberSince = !empty($u['created_at']) ? date('d M Y, h:i A', strtotime($u['created_at'])) : '—';
+$lastLogin = !empty($u['last_login_at']) ? date('d M Y, h:i A', strtotime($u['last_login_at'])) : '—';
+$initials = '';
+foreach (preg_split('/\s+/', trim($u['full_name'] ?? 'User')) as $part) {
+    if ($part !== '') $initials .= strtoupper(substr($part, 0, 1));
+    if (strlen($initials) >= 2) break;
+}
+
+require __DIR__.'/../../includes/header.php';
+?>
+
+<div class="user-shell profile-shell">
+    <aside class="sidebar">
+        <?php require __DIR__.'/../sidebar.php'; ?>
+    </aside>
+
+    <section class="admin-content user-content profile-content">
+        <div class="profile-page-head">
+            <div>
+                <div class="eyebrow">Dashboard &nbsp;›&nbsp; Profile</div>
+                <h1 class="profile-page-title">My Profile</h1>
+                <p>Manage your personal information, company details and notification preferences.</p>
+            </div>
+        </div>
+
+        <div class="profile-layout">
+            <div class="profile-main-column">
+                <section class="profile-card profile-identity-card">
+                    <div class="profile-avatar" aria-hidden="true"><?= e($initials ?: 'U') ?></div>
+                    <div class="profile-identity">
+                        <div class="profile-name-row">
+                            <h2><?= e($u['full_name'] ?? 'User') ?></h2>
+                            <span class="profile-status"><span></span><?= e($accountStatus) ?></span>
+                        </div>
+                        <p class="profile-company"><?= e($u['company_name'] ?? 'Berjaya Hills Resort') ?></p>
+                        <p class="profile-role"><?= e($u['job_title'] ?? 'Registered User') ?></p>
+                        <div class="profile-contact-row">
+                            <span>✉ <?= e($u['email'] ?? '—') ?></span>
+                            <span>☎ <?= e($u['phone'] ?? '—') ?></span>
+                        </div>
+                    </div>
+                    <a class="btn btn-outline profile-edit-link" href="#personal-information">Edit profile</a>
+                </section>
+
+                <section class="profile-card" id="personal-information">
+                    <div class="profile-section-heading">
+                        <div class="profile-heading-icon">♙</div>
+                        <div>
+                            <h3>Personal Information</h3>
+                            <p>Update the contact details used for your event bookings.</p>
+                        </div>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" name="csrf" value="<?= csrf_token() ?>">
+                        <input type="hidden" name="action" value="profile">
+                        <div class="profile-form-grid">
+                            <div class="field">
+                                <label>Full Name</label>
+                                <input name="full_name" value="<?= e($u['full_name'] ?? '') ?>" required>
+                            </div>
+                            <div class="field">
+                                <label>Email Address</label>
+                                <input value="<?= e($u['email'] ?? '') ?>" disabled>
+                            </div>
+                            <div class="field">
+                                <label>Phone Number</label>
+                                <input name="phone" value="<?= e($u['phone'] ?? '') ?>">
+                            </div>
+                            <div class="field">
+                                <label>Job Title</label>
+                                <input name="job_title" value="<?= e($u['job_title'] ?? '') ?>">
+                            </div>
+                        </div>
+
+                        <div class="profile-form-actions">
+                            <button class="btn btn-gold" type="submit">Save profile</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="profile-card">
+                    <div class="profile-section-heading">
+                        <div class="profile-heading-icon">▥</div>
+                        <div>
+                            <h3>Company Information</h3>
+                            <p>Company details shown when you submit an event booking.</p>
+                        </div>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" name="csrf" value="<?= csrf_token() ?>">
+                        <input type="hidden" name="action" value="profile">
+                        <div class="profile-form-grid profile-company-grid">
+                            <div class="field field-wide">
+                                <label>Company Name</label>
+                                <input name="company_name" value="<?= e($u['company_name'] ?? '') ?>">
+                            </div>
+                            <div class="field">
+                                <label>Job Title</label>
+                                <input name="job_title" value="<?= e($u['job_title'] ?? '') ?>">
+                            </div>
+                        </div>
+                        <div class="profile-form-actions">
+                            <button class="btn btn-gold" type="submit">Save company details</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="profile-card">
+                    <div class="profile-section-heading">
+                        <div class="profile-heading-icon">♢</div>
+                        <div>
+                            <h3>Account Information</h3>
+                            <p>Your account status and membership details.</p>
+                        </div>
+                    </div>
+                    <div class="profile-info-list">
+                        <div><span>Account Status</span><strong class="profile-status-inline"><span></span><?= e($accountStatus) ?></strong></div>
+                        <div><span>User Role</span><strong>Registered User</strong></div>
+                        <div><span>Member Since</span><strong><?= e($memberSince) ?></strong></div>
+                        <div><span>Last Login</span><strong><?= e($lastLogin) ?></strong></div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="profile-side-column">
+                <section class="profile-card profile-preferences-card">
+                    <div class="profile-section-heading">
+                        <div class="profile-heading-icon gold">♧</div>
+                        <div>
+                            <h3>Notification Preferences</h3>
+                            <p>Choose which updates you would like to receive in the system and by email.</p>
+                        </div>
+                    </div>
+
+                    <form method="post">
+                        <input type="hidden" name="csrf" value="<?= csrf_token() ?>">
+                        <input type="hidden" name="action" value="notifications">
+                        <div class="profile-pref-head"><span></span><b>In-System</b><b>Email</b></div>
+
+                        <div class="profile-pref-row">
+                            <div class="profile-pref-icon blue">▣</div>
+                            <div class="profile-pref-copy"><strong>Booking Updates</strong><small>Booking submitted, under review, confirmed and cancelled.</small></div>
+                            <label class="profile-switch"><input type="checkbox" name="booking_updates" <?= !empty($prefs['booking_updates']) ? 'checked' : '' ?>><span></span></label>
+                            <label class="profile-switch"><input type="checkbox" name="email_enabled" <?= !empty($prefs['email_enabled']) ? 'checked' : '' ?>><span></span></label>
+                        </div>
+
+                        <div class="profile-pref-row">
+                            <div class="profile-pref-icon gold">♧</div>
+                            <div class="profile-pref-copy"><strong>Booking Reminders</strong><small>Upcoming event reminders and important deadlines.</small></div>
+                            <label class="profile-switch"><input type="checkbox" name="event_reminders" <?= !empty($prefs['event_reminders']) ? 'checked' : '' ?>><span></span></label>
+                            <label class="profile-switch"><input type="checkbox" name="email_enabled_2" class="email-proxy" <?= !empty($prefs['email_enabled']) ? 'checked' : '' ?>><span></span></label>
+                        </div>
+
+                        <div class="profile-pref-row">
+                            <div class="profile-pref-icon green">▣</div>
+                            <div class="profile-pref-copy"><strong>Event Updates</strong><small>Important event and resort activity updates.</small></div>
+                            <label class="profile-switch"><input type="checkbox" name="announcements" <?= !empty($prefs['announcements']) ? 'checked' : '' ?>><span></span></label>
+                            <label class="profile-switch"><input type="checkbox" name="email_enabled_3" class="email-proxy" <?= !empty($prefs['email_enabled']) ? 'checked' : '' ?>><span></span></label>
+                        </div>
+
+                        <div class="profile-pref-row">
+                            <div class="profile-pref-icon purple">♙</div>
+                            <div class="profile-pref-copy"><strong>Account Updates</strong><small>Account approval, profile updates and password changes.</small></div>
+                            <label class="profile-switch"><input type="checkbox" checked disabled><span></span></label>
+                            <label class="profile-switch"><input type="checkbox" checked disabled><span></span></label>
+                        </div>
+
+                        <div class="profile-pref-note">Email delivery is controlled by your account email preference.</div>
+                        <div class="profile-form-actions">
+                            <button class="btn btn-gold" type="submit">Save notification settings</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="profile-card profile-email-card">
+                    <div class="profile-section-heading">
+                        <div class="profile-heading-icon">✉</div>
+                        <div>
+                            <h3>Email Notification Settings</h3>
+                            <p>Manage your email preference and delivery behaviour.</p>
+                        </div>
+                    </div>
+                    <div class="profile-email-grid">
+                        <div><span>Email Address</span><strong><?= e($u['email'] ?? '—') ?></strong></div>
+                        <div><span>Email Delivery</span><strong><?= !empty($prefs['email_enabled']) ? 'Enabled' : 'Disabled' ?></strong></div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </section>
+</div>
+
+<?php require __DIR__.'/../../includes/footer.php'; ?>
