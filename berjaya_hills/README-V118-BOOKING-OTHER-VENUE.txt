@@ -1,0 +1,1 @@
+V118 — Booking Venue: added Others option with a short text field for a custom venue/space. Custom venue name is stored on events.other_venue_name and displayed in booking views. Run database/migrations/v118_booking_other_venue.sql on an existing database before testing.
