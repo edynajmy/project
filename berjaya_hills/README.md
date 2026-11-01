@@ -34,7 +34,6 @@
 - [System Architecture](#-system-architecture)
 - [System Workflow](#-system-workflow)
 - [Database Design](#-database-design)
-- [System Screenshots](#-system-screenshots)
 - [System Requirements](#-system-requirements)
 - [Installation Guide](#-installation-guide)
 - [How to Run the Project](#-how-to-run-the-project)
