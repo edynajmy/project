@@ -36,7 +36,6 @@
 - [System Architecture](#-system-architecture)
 - [System Workflow](#-system-workflow)
 - [Database Design](#-database-design)
-- [System Screenshots](#-system-screenshots)
 - [System Requirements](#-system-requirements)
 - [Installation Guide](#-installation-guide)
 - [How to Run](#-how-to-run-the-project)
@@ -47,9 +46,7 @@
 - [My Contributions](#-my-contributions)
 - [Future Improvements](#-future-improvements)
 - [Project Status](#-project-status)
-- [Author](#-author)
 - [Acknowledgements](#-acknowledgements)
-- [License](#-license)
 
 ---
 
@@ -728,94 +725,6 @@ Do not assume that importing the two supplied migration files alone is sufficien
 
 ---
 
-## 🖼️ System Screenshots
-
-The following screenshots demonstrate the main EDYLIFE interfaces.
-
-### 1. Personal Dashboard
-
-The dashboard provides a central overview of daily tasks, weekly focus, activities and personal timeline information.
-
-![EDYLIFE Dashboard](screenshots/dashboard.png)
-
-### 2. Movie & Drama
-
-The entertainment module provides a personal watchlist, viewing statistics and monthly viewing comparison.
-
-![EDYLIFE Movie and Drama](screenshots/movie-drama.png)
-
-### 3. Life Calendar
-
-The calendar provides a monthly overview of journal entries and personal dates.
-
-![EDYLIFE Calendar](screenshots/calendar.png)
-
-### 4. Activities Management
-
-Suggested screenshot:
-
-```text
-screenshots/activities.png
-```
-
-Displays the daily schedule and activity management interface.
-
-### 5. Work Planner
-
-Suggested screenshot:
-
-```text
-screenshots/work-planner.png
-```
-
-Displays work items, task priorities, statuses and deadlines.
-
-### 6. Memories & Photos
-
-Suggested screenshot:
-
-```text
-screenshots/memories-photos.png
-```
-
-Displays the photo folder structure and personal image collection.
-
-### 7. Daily Journal
-
-Suggested screenshot:
-
-```text
-screenshots/daily-journal.png
-```
-
-Displays journal entries, categories and personal notes.
-
-### 8. Personal Profile
-
-Suggested screenshot:
-
-```text
-screenshots/profile.png
-```
-
-Displays personal profile and workspace customisation.
-
-### Recommended Screenshot Directory
-
-```text
-screenshots/
-├── dashboard.png
-├── activities.png
-├── movie-drama.png
-├── work-planner.png
-├── memories-photos.png
-├── calendar.png
-├── daily-journal.png
-└── profile.png
-```
-
----
-
 ## 💻 System Requirements
 
 ### Software Requirements
@@ -1338,22 +1247,6 @@ The supplied source code has passed PHP syntax validation. However, full end-to-
 
 ---
 
-## 👤 Author
-
-**Project Name:** EDYLIFE
-
-**Tagline:** Your World. Your Story.
-
-**Author:** [Your Full Name]
-
-**Project Type:** Personal Web Application
-
-**Development Period:** [Insert Development Period]
-
-**Technologies:** PHP, MySQL, HTML5, CSS3 and JavaScript
-
----
-
 ## 🙏 Acknowledgements
 
 Special appreciation to:
@@ -1362,14 +1255,6 @@ Special appreciation to:
 - The open-source development community.
 - Google Fonts for typography resources.
 - All resources and references that supported the development of this application.
-
----
-
-## 📄 License
-
-No open-source license has currently been assigned to this project.
-
-All rights and permissions should be confirmed by the project owner before distributing the source code under an open-source license.
 
 ---
 
