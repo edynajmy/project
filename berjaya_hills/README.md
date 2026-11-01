@@ -43,10 +43,7 @@
 - [Challenges and Solutions](#-challenges-and-solutions)
 - [My Contributions](#-my-contributions)
 - [Future Improvements](#-future-improvements)
-- [Project Status](#-project-status)
-- [Author and Contributors](#-author-and-contributors)
 - [Acknowledgements](#-acknowledgements)
-- [License](#-license)
 
 ---
 
