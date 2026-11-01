@@ -803,8 +803,6 @@ define('DB_USER', 'root');
 define('DB_PASS', 'your_local_database_password');
 ```
 
-Do not commit real production credentials to GitHub.
-
 ### Step 8: Check Folder Permissions
 
 Ensure the following directories are writable by the web server when their upload functionality is used:
@@ -1126,30 +1124,6 @@ The following are suggested enhancements and should not be interpreted as existi
 
 ---
 
-## 📊 Project Status
-
-**Current status: To be confirmed by the project author.**
-
-The supplied archive contains a substantial implementation of public website, booking, user, administration and database modules.
-
-However, full end-to-end runtime testing and production deployment have not been verified as part of this source review.
-
----
-
-## 👤 Author and Contributors
-
-**Project:** Berjaya Hills Event Management System
-
-**Author:** [Your Full Name]
-
-**Institution / Organisation:** [Insert Institution or Organisation]
-
-**Project Type:** [Internship / Academic Project / Personal Project]
-
-**Development Period:** [Insert Development Period]
-
----
-
 ## 🙏 Acknowledgements
 
 Special appreciation to:
@@ -1158,16 +1132,6 @@ Special appreciation to:
 - The developers and maintainers of PHP and MySQL.
 - The open-source community for development tools and resources.
 - All individuals who contributed feedback, guidance and support during development.
-
----
-
-## 📄 License
-
-No open-source license has been assigned in this repository.
-
-The project should only be distributed or published according to the applicable project ownership, institutional and organisational permissions.
-
-If this project was developed during an internship or for an organisation, obtain the necessary permission before publicly distributing its source code or associated materials.
 
 ---
 
