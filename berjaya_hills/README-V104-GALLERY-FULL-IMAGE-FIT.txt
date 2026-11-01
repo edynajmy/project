@@ -1,1 +1,0 @@
-v104 Gallery image fit adjustment: lightbox media uses a centered flex frame and image fills available media bounds with object-fit: contain, preserving complete source image without cropping or stretching. Original source resolution remains unchanged.

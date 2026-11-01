@@ -1,1 +1,0 @@
-v101: Apply orientation-aware lightbox frame detection to every image in every gallery album, including portrait, landscape, and square images; handle cached image loads and image errors.
