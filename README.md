@@ -84,19 +84,6 @@ Additional academic, programming and technology-related projects that reflect my
 
 ---
 
-## 📊 GitHub Statistics
-
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=edynajmy&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=edynajmy&layout=compact&theme=tokyonight&hide_border=true" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=edynajmy&theme=tokyonight&hide_border=true" />
-</p>
-
----
-
 ## 🤝 Let's Connect!
 
 I'm always interested in learning, collaborating and exploring new opportunities in technology.
