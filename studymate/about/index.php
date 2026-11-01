@@ -104,7 +104,7 @@ include("../includes/navbar.php");
     <p>
         Developed by:
         <br>
-        <strong>Edy Nur Najmy bin Hamedy</strong>
+        <strong>Edy Nur Najmy bin Hamedy (Pres MYTECC 25/26)</strong>
         <br>
         Faculty of Computer and Mathematical Sciences
         (FSKM)
