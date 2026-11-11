@@ -1,78 +1,105 @@
-# Floating Lyrics Cards 🎵
+::: {align="center"}
+# 🎵 Floating Lyrics Cards
 
-A Python **Pygame** desktop animation that displays eight lyric lines as
-floating cards, followed by an animated **binary dinosaur** made from
-`0` and `1` characters.
+**A desktop lyric-card animation built with Python and Pygame**
 
-The project uses a borderless, screen-sized window and attempts to make
-its background transparent on **Windows**, so the cards appear to float
-over the desktop.
+Eight lyric lines. Floating cards. A typewriter reveal.\
+And a final animated binary dinosaur.
+:::
 
-> **Note:** This version of `song.py` does **not** load or play an MP3.
-> Lyrics appear according to programmed delays, not synchronized to
-> actual audio.
+------------------------------------------------------------------------
 
-## ✨ Features
+## ✨ Overview
 
--   Eight floating lyric cards with a character-by-character typewriter
-    effect
--   Alternating **black-and-white** card styles
--   Random horizontal placement with an attempt to avoid overlapping
-    cards
--   Upward movement across the screen
--   Rounded card borders and centered, wrapped text
--   A final animated **binary dinosaur** card
--   Borderless, always-on-top transparent-window effect on Windows
--   Press **Esc** to exit
+Floating Lyrics Cards is a Python desktop animation that displays eight
+lyric lines in floating cards. Each card rises upward, reveals its text
+one character at a time, and alternates between black and white styling.
+After the final lyric, an animated dinosaur made from `0` and `1`
+characters appears.
 
-## 🎤 Lyrics displayed
+The project creates a borderless, screen-sized window and attempts to
+make its background transparent on **Windows**, allowing the cards to
+appear over the desktop.
 
-The script shows these **eight lines in this order**:
+> \[!NOTE\] This version of `song.py` **does not load or play an MP3**.
+> The lyrics are triggered by programmed delays and are not synchronized
+> with actual audio.
 
-  \#   Displayed lyric
+## 🎤 Lyrics
+
+The script displays these eight lines in the following order:
+
+   \#  Lyric
   ---- -----------------------------------
-  1    When I'm walkin' with you
-  2    I watch the whole room change
-  3    Baby, that's what you do
-  4    No, my baby, don't play
-  5    Blame it on my confidence 
-  6    Oh, blame it on your measurements
-  7    Shut that shit down on sight
-  8    That's right
+   1   When I'm walkin' with you
+   2   I watch the whole room change
+   3   Baby, that's what you do
+   4   No, my baby, don't play
+   5   Blame it on my confidence
+   6   Oh, blame it on your measurements
+   7   Shut that shit down on sight
+   8   That's right
 
-After the eighth lyric card, the program creates a **binary dinosaur**
-card.
+After the eighth lyric card, the **Binary Dinosaur** card appears.
 
-### ⏱️ Timing
+## ⏱️ Display Timing
 
-The first card is created as soon as the animation starts. Each delay
-below is measured **from the creation of the previous card**, not from
+The first lyric card appears as soon as the animation starts. Each delay
+below is measured from the creation of the **previous card**, not from
 the beginning of a song.
 
-  Card       Delay until next card
-  ------ -------------------------
-  1                          1.5 s
-  2                          2.0 s
-  3                          2.0 s
-  4                          3.0 s
-  5                          3.0 s
-  6                          2.2 s
-  7                          1.5 s
-  8        2.5 s → binary dinosaur
+   Card           Delay before the next card
+  ------ -----------------------------------
+    1                            1.5 seconds
+    2                            2.0 seconds
+    3                            2.0 seconds
+    4                            3.0 seconds
+    5                            3.0 seconds
+    6                            2.2 seconds
+    7                            1.5 seconds
+    8      2.5 seconds, then Binary Dinosaur
 
-The timings are approximate, as rendering and the application frame loop
+Timing is approximate because rendering and the application frame loop
 can introduce small delays.
+
+## 🌟 Features
+
+-   **Floating lyric cards** --- eight lines appear in sequence.
+-   **Typewriter effect** --- each line is revealed character by
+    character.
+-   **Black-and-white styles** --- card appearance alternates between
+    the two styles.
+-   **Random positioning** --- cards are placed at varying horizontal
+    positions, with an attempt to avoid overlap.
+-   **Upward animation** --- cards float toward the top of the screen.
+-   **Rounded card design** --- centered text, rounded corners, and a
+    visible border.
+-   **Binary Dinosaur ending** --- an animated dinosaur built from `0`
+    and `1` characters.
+-   **Desktop overlay** --- borderless, always-on-top window with a
+    Windows transparency effect.
+-   **Keyboard exit** --- press `Esc` to close the application.
 
 ## 🧰 Requirements
 
--   Python **3.13** (recommended for the commands below)
--   [Pygame](https://www.pygame.org/)
--   Windows recommended for the transparent desktop-overlay effect
+  -----------------------------------------------------------------------
+  Requirement                         Details
+  ----------------------------------- -----------------------------------
+  Python                              Python **3.13** recommended for the
+                                      commands below
 
-The script also imports `math`, `os`, `random`, and `sys`, which are
+  Library                             [Pygame](https://www.pygame.org/)
+
+  Operating system                    Windows recommended for the desktop
+                                      transparency effect
+  -----------------------------------------------------------------------
+
+The script also uses `math`, `os`, `random`, and `sys`, which are
 included with Python.
 
-## 📁 Project structure
+## 📁 Project Structure
+
+Keep the files arranged like this:
 
 ``` text
 floating-lyrics/
@@ -80,83 +107,90 @@ floating-lyrics/
 └── README.md
 ```
 
-No MP3 file is required for this version.
+This version does not require an MP3 file.
 
-## 🚀 How to run
+## 🚀 Getting Started
 
-### 1. Download or clone the project
+### 1. Open the project
 
-Open the project folder in **VS Code** or PowerShell.
+Download or clone the repository, then open the project folder in **VS
+Code**.
 
-### 2. Install Pygame
+### 2. Open the VS Code terminal
+
+Select **Terminal → New Terminal**.
+
+### 3. Install Pygame
+
+In PowerShell, run:
 
 ``` powershell
 py -3.13 -m pip install pygame
 ```
 
-### 3. Navigate to your project folder
+### 4. Navigate to the project folder
 
-For example, if you saved the file in `C:\xampp\htdocs\song`:
+For example, if the project is saved at `C:\xampp\htdocs\song`, run:
 
 ``` powershell
 cd C:\xampp\htdocs\song
 ```
 
-Verify the filename:
+Check that `song.py` is present:
 
 ``` powershell
 dir
 ```
 
-You should see `song.py`.
-
-### 4. Start the animation
+### 5. Run the animation
 
 ``` powershell
 py -3.13 song.py
 ```
 
-The lyric cards should begin appearing on screen. **Press Esc to close
-the program.**
+The floating lyric cards should now appear on your screen.
 
-If your computer uses a different Python installation, try
-`python song.py` after installing Pygame into that same environment.
+**To exit:** Press `Esc`.
 
-## ⚙️ Customize the animation
+> If you use a different Python version, replace `3.13` in the commands
+> with your installed version. Make sure Pygame is installed for the
+> same Python interpreter used to run the script.
 
-Edit these variables near the top of `song.py`:
+## ⚙️ Customization
 
-  -------------------------------------------------------------------------------------
-  Setting                 Default                               Purpose
-  ----------------------- ------------------------------------- -----------------------
-  `SPEED_MULTIPLIER`      `1.0`                                 Scales card-spawn
-                                                                delays, typewriter
-                                                                speed, and floating
-                                                                movement
+The following settings can be changed near the top of `song.py`.
 
-  `BASE_FLOAT_SPEED`      `2.1`                                 Upward movement per
+  -----------------------------------------------------------------------------------
+  Setting                                         Current value What it controls
+  ----------------------- ------------------------------------- ---------------------
+  `SPEED_MULTIPLIER`                                      `1.0` Scales card delays,
+                                                                typewriter speed, and
+                                                                floating movement
+
+  `BASE_FLOAT_SPEED`                                      `2.1` Upward movement per
                                                                 update frame, before
-                                                                speed multiplier
+                                                                the speed multiplier
 
-  `LINE_DELAYS_SECONDS`   See timing table                      Delay between
+  `LINE_DELAYS_SECONDS`                        See timing table Delay between
                                                                 consecutive cards
 
-  `TYPE_SPEEDS_MS`        `[60, 60, 70, 70, 90, 60, 60, 150]`   Character reveal delay
-                                                                for each lyric card
-
-  `CARD_WIDTH`            `310`                                 Card width in pixels
-
-  `CARD_HEIGHT`           `350`                                 Card height in pixels
-
-  `BODY_FONT_SIZE`        `46`                                  Lyric font size
-
-  `LYRICS`                8 entries                             Text displayed on each
+  `TYPE_SPEEDS_MS`          `[60, 60, 70, 70, 90, 60, 60, 150]` Character reveal
+                                                                delay for each lyric
                                                                 card
-  -------------------------------------------------------------------------------------
 
-### Change a lyric
+  `CARD_WIDTH`                                            `310` Card width in pixels
 
-Update an entry in the `LYRICS` list:
+  `CARD_HEIGHT`                                           `350` Card height in pixels
+
+  `BODY_FONT_SIZE`                                         `46` Lyric font size
+
+  `LYRICS`                                              8 lines Text displayed on the
+                                                                cards
+  -----------------------------------------------------------------------------------
+
+### Change the lyrics
+
+Edit the `LYRICS` list:
 
 ``` python
 LYRICS = [
@@ -165,20 +199,22 @@ LYRICS = [
 ]
 ```
 
-If you change the number of lines, consider updating
-`LINE_DELAYS_SECONDS` and `TYPE_SPEEDS_MS` too.
+If you change the number of lyric lines, also consider updating
+`LINE_DELAYS_SECONDS` and `TYPE_SPEEDS_MS` to match.
 
-### Make cards appear faster or slower
+### Change the animation speed
 
 ``` python
-SPEED_MULTIPLIER = 1.2  # Faster animation
+SPEED_MULTIPLIER = 1.2  # Faster
 ```
 
 ``` python
-SPEED_MULTIPLIER = 0.8  # Slower animation
+SPEED_MULTIPLIER = 0.8  # Slower
 ```
 
-### Change the delay after a line
+### Change the delay between cards
+
+Edit `LINE_DELAYS_SECONDS`:
 
 ``` python
 LINE_DELAYS_SECONDS = [
@@ -189,33 +225,116 @@ LINE_DELAYS_SECONDS = [
     3.0,  # After lyric 5
     2.2,  # After lyric 6
     1.5,  # After lyric 7
-    2.5,  # After lyric 8, before dinosaur
+    2.5,  # After lyric 8, before Binary Dinosaur
 ]
 ```
 
-**Important:** These delays control animation timing only. The script
-does not listen to or synchronize with an audio file.
+> \[!IMPORTANT\] These values control the animation sequence only. The
+> program does not detect vocals or synchronize lyrics to an audio
+> track.
 
 ## 🛠️ Troubleshooting
 
-**`can't open file 'song.py'`**\
-Check the current folder with `pwd` and `dir`, then navigate to the
-folder containing `song.py`.
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}Error: can't open file 'song.py'`</strong>`{=html}
+```{=html}
+</summary>
+```
+The terminal may be in the wrong folder. Check your current location and
+files:
 
-**`ModuleNotFoundError: No module named 'pygame'`**\
-Run `py -3.13 -m pip install pygame` and launch the program using
-`py -3.13 song.py`.
+``` powershell
+pwd
+dir
+```
 
-**The background is not transparent**\
-The transparency effect relies on Windows-specific APIs. It may not work
+Then use `cd` to navigate to the folder containing `song.py`.
+
+```{=html}
+</details>
+```
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}Error: ModuleNotFoundError: No module named
+'pygame'`</strong>`{=html}
+```{=html}
+</summary>
+```
+Install Pygame using the same Python interpreter that runs the project:
+
+``` powershell
+py -3.13 -m pip install pygame
+```
+
+Then run:
+
+``` powershell
+py -3.13 song.py
+```
+
+```{=html}
+</details>
+```
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}The background is not transparent`</strong>`{=html}
+```{=html}
+</summary>
+```
+The transparency effect uses Windows-specific APIs. It may not work in
 the same way on macOS or Linux.
 
-**Lyrics appear too fast or too slow**\
-Edit `LINE_DELAYS_SECONDS` or `SPEED_MULTIPLIER`.
+```{=html}
+</details>
+```
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}The lyrics appear too fast or too
+slowly`</strong>`{=html}
+```{=html}
+</summary>
+```
+Adjust `LINE_DELAYS_SECONDS` or `SPEED_MULTIPLIER` near the top of
+`song.py`.
 
-**I can't see the exit button**\
-The application intentionally uses a borderless window. Press **Esc**.
+```{=html}
+</details>
+```
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}There is no close button`</strong>`{=html}
+```{=html}
+</summary>
+```
+The application uses a borderless window. Press **`Esc`** to exit.
+
+```{=html}
+</details>
+```
 
 ------------------------------------------------------------------------
 
-Made with **Python + Pygame**.
+::: {align="center"}
+**Built with Python 🐍 and Pygame 🎮**
+:::
