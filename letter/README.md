@@ -1,4 +1,4 @@
-#  Special Letter 💌
+#  Special Letter 💌 from https://github.com/iremcnar
 
 A generative ASCII art animation in Python: a sealed love letter is opened with a click, burns away in a wave of fire, and its embers fly up to form a glowing rose.
 
