@@ -1,4 +1,4 @@
-# Eye → Space 👁️
+# Eye → Space 👁️ from https://github.com/iremcnar
 
 A generative ASCII art animation in Python that brings a single eye to life: it opens, blinks, and then the camera dives into the pupil, flying through a twinkling starfield and into a glowing heart-shaped nebula, all drawn with text characters and no images.
 
