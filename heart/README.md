@@ -2,7 +2,9 @@
 
 A generative typographic art experiment in Python that renders a heart silhouette composed of "I love you" in 20 different languages, featuring smooth floating animations and a subtle shimmering effect.
 
-<img width="700" alt="images/love-heart.png"/>
+<p align="center">
+  <img src="images/love-heart.png" width="700" alt="Love Heart Screenshot">
+</p>
 
 ## Features
 - **Parametric Heart Boundary:** Uses a parametric heart curve to calculate exact scanline boundaries and text placement.
