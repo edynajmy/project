@@ -35,7 +35,7 @@ The script shows these **eight lines in this order**:
   2    I watch the whole room change
   3    Baby, that's what you do
   4    No, my baby, don't play
-  5    Blame it on my confidence
+  5    Blame it on my confidence 
   6    Oh, blame it on your measurements
   7    Shut that shit down on sight
   8    That's right
