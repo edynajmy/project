@@ -6,8 +6,8 @@ include 'connection.php';
 require_once 'google-api (1)/google-api/vendor/autoload.php';
 
 // --- INSERT YOUR GOOGLE KEYS HERE ---
-$clientID = '640587794999-5g44bgg0vpf0s9lc4pq6ocakje7ci6di.apps.googleusercontent.com';
-$clientSecret = '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';
+$clientID = '';
+$clientSecret = '';
 $redirectUri = 'http://localhost/testing/google_callback.php';
 
 // Setup Google Client
