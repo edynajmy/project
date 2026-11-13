@@ -10,19 +10,31 @@
 ### Screenshot
 
 <p align="center">
-  <img src="image/love-heart.png" width="700" alt="Love Heart Screenshot">
+  <img src="image/el1.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/love-heart.png" width="700" alt="Love Heart Screenshot">
+  <img src="image/el2.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/love-heart.png" width="700" alt="Love Heart Screenshot">
+  <img src="image/el3.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/love-heart.png" width="700" alt="Love Heart Screenshot">
+  <img src="image/el4.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="image/el5.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="image/el6.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="image/el7.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
