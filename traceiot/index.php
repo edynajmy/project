@@ -270,17 +270,17 @@ if (isset($_POST['register'])) {
                     
                     <div class="form-group">
                         <label>STUDENT ID</label>
-                        <input type="text" name="student_id" placeholder="2024261714" required>
+                        <input type="text" name="student_id" placeholder="2024123456" required>
                     </div>
 
                     <div class="form-group">
                         <label>NAME</label>
-                        <input type="text" name="name" placeholder="Adam Haris" required>
+                        <input type="text" name="name" placeholder="Name" required>
                     </div>
 
                     <div class="form-group">
                         <label>EMAIL</label>
-                        <input type="email" name="email" placeholder="adamharis@student.uitm.edu.my" required>
+                        <input type="email" name="email" placeholder="studentID@student.uitm.edu.my" required>
                     </div>
 
                     <div class="form-group">
@@ -295,7 +295,7 @@ if (isset($_POST['register'])) {
 
                     <div class="form-group">
                         <label>PHONE NUMBER</label>
-                        <input type="text" name="phone_num" placeholder="011 3935 8952" required>
+                        <input type="text" name="phone_num" placeholder="012 3456 7890" required>
                     </div>
 
                     <div class="form-group">
