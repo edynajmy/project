@@ -7,6 +7,44 @@
   <strong>Streamlining lost item reporting, found item registration, claim verification and inventory management through an integrated web-based system.</strong>
 </p>
 
+### Screenshot
+
+<p align="center">
+  <img src="images/lf1.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf2.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf3.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf4.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf5.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf6.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf7.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf8.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf9.png" width="700" alt="System Screenshot">
+</p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/MySQL-MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MariaDB">
