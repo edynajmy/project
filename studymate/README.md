@@ -9,6 +9,52 @@
   An integrated academic productivity platform designed to help university students organise assignments, examinations, study schedules and academic activities in one place.
 </p>
 
+### Screenshot
+
+<p align="center">
+  <img src="images/st1.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st2.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st3.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st4.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st5.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st6.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st7.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st8.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st9.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st10.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/st11.png" width="700" alt="System Screenshot">
+</p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/PHP-Backend-777BB4?style=for-the-badge&logo=php&logoColor=white">
   <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
