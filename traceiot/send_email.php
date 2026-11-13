@@ -17,11 +17,11 @@ function sendEmail($toEmail, $toName, $subject, $body) {
         $mail->SMTPAuth   = true;
 
         // Tukar kepada Gmail sender kau
-        $mail->Username   = 'zameelakmal21@gmail.com';
+        $mail->Username   = '';
 
         // Tukar kepada Google App Password, bukan password Gmail biasa
         // Buang semua space dalam app password
-        $mail->Password   = 'hochexehfdlmniee';
+        $mail->Password   = '';
 
         // Since port 587 works on your laptop
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
