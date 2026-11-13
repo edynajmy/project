@@ -7,6 +7,48 @@
   <strong>Centralising event planning, venue reservations and resort operations through one web-based platform.</strong>
 </p>
 
+### Screenshot
+
+<p align="center">
+  <img src="images/bh1.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh2.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh3.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh4.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh5.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh6.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh7.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh8.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh9.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/bh10.png" width="700" alt="System Screenshot">
+</p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
