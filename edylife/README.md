@@ -10,31 +10,31 @@
 ### Screenshot
 
 <p align="center">
-  <img src="image/el1.png" width="700" alt="System Screenshot">
+  <img src="images/el1.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el2.png" width="700" alt="System Screenshot">
+  <img src="images/el2.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el3.png" width="700" alt="System Screenshot">
+  <img src="images/el3.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el4.png" width="700" alt="System Screenshot">
+  <img src="images/el4.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el5.png" width="700" alt="System Screenshot">
+  <img src="images/el5.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el6.png" width="700" alt="System Screenshot">
+  <img src="images/el6.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
-  <img src="image/el7.png" width="700" alt="System Screenshot">
+  <img src="images/el7.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
