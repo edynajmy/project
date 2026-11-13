@@ -10,10 +10,6 @@
 ### Screenshot
 
 <p align="center">
-  <img src="images/lf1.png" width="700" alt="System Screenshot">
-</p>
-
-<p align="center">
   <img src="images/lf2.png" width="700" alt="System Screenshot">
 </p>
 
@@ -43,6 +39,10 @@
 
 <p align="center">
   <img src="images/lf9.png" width="700" alt="System Screenshot">
+</p>
+
+<p align="center">
+  <img src="images/lf1.png" width="700" alt="System Screenshot">
 </p>
 
 <p align="center">
