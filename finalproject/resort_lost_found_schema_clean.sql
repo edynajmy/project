@@ -3,7 +3,6 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2026 at 10:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -160,9 +159,6 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
-
-INSERT INTO `users` (`user_id`, `full_name`, `email`, `phone_number`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'EDY NUR NAJMY HAMEDY', 'edynajmy@gmail.com', '01139358952', '$2y$10$jMAJBi822fe7z8FLlotuc.gaQJIkgjHfebTpyiWm0HhncRBYpKriu', 'Reporter', '2026-09-08 08:13:29', '2026-09-08 08:13:29');
 
 --
 -- Indexes for dumped tables
